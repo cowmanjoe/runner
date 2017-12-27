@@ -58,8 +58,24 @@ namespace Assets.Scripts
         public void AddSmallWall()
         {
             terrain.Add(UnityEngine.Object.Instantiate(platform, nextPosition, Quaternion.identity)); 
-            terrain.Add(UnityEngine.Object.Instantiate(obstacle, nextPosition + Vector2.up * platform.transform.localScale.y, Quaternion.identity));
+            terrain.Add(UnityEngine.Object.Instantiate(obstacle, nextPosition + Vector2.up, Quaternion.identity));
             nextPosition += new Vector2(obstacle.transform.localScale.x, 0);
+
+            AddFloor();
+            AddFloor();
+        }
+
+        public void AddWall(int y, int height)
+        {
+            terrain.Add(UnityEngine.Object.Instantiate(platform, nextPosition, Quaternion.identity)); 
+            for (var i = 0; i < height; i++)
+            {
+                terrain.Add(UnityEngine.Object.Instantiate(obstacle, nextPosition + Vector2.up * (y + i), Quaternion.identity)); 
+            }
+            nextPosition += new Vector2(obstacle.transform.localScale.x, 0);
+
+            AddFloor();
+            AddFloor();
         }
     }
 }

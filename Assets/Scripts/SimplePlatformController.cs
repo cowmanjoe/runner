@@ -6,10 +6,6 @@ public class SimplePlatformController : MonoBehaviour
 {
 
     [HideInInspector] public bool jump = false;
-
-    public float moveForce = 365f;
-    public const float maxSpeed = 5f;
-    public const float jumpForce = 1000f;
     public Transform groundCheck;
     public Transform obstacleCheck;
     public bool isBottomHero = true;
@@ -18,7 +14,11 @@ public class SimplePlatformController : MonoBehaviour
     private bool grounded = false;
     private Animator anim;
     private Rigidbody2D rb2d;
-    private BoxCollider2D bc2d; 
+    private BoxCollider2D bc2d;
+
+    private const float moveForce = 365f;
+    private const float maxSpeed = 5f;
+    private const float jumpForce = 1000f;
 
     void Awake()
     {
@@ -26,10 +26,9 @@ public class SimplePlatformController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         bc2d = GetComponent<BoxCollider2D>();
     }
-    
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
 	{
 
 	    grounded = IsGrounded();

@@ -20,11 +20,19 @@ public class PlatformGenerator : MonoBehaviour
     private System.Random random;
     private Course course;
 
+    private const int numStartPlatforms = 20;
+
+
     // Use this for initialization
     void Start()
     {
         random = new System.Random(); 
         course = new Course(platform.transform.position, platform, obstacle);
+
+        for (var i = 0; i < numStartPlatforms; i++)
+        {
+            course.AddFloor(); 
+        }
     }
 
     void Update()
@@ -46,6 +54,14 @@ public class PlatformGenerator : MonoBehaviour
         else if (val > 80)
         {
             course.AddSmallWall();
+        }
+        else if (val > 75)
+        {
+            course.AddWall(2, 2); 
+        }
+        else if (val > 65)
+        {
+            course.AddWall(3, 1); 
         }
         else
         {
