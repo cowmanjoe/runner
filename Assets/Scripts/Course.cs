@@ -16,7 +16,6 @@ namespace Assets.Scripts
             get { return nextPosition.x;  }
         } 
 
-        //private float floorLevel;
         private readonly Vector2 origin;
         private Vector2 nextPosition;
         private List<GameObject> terrain;
@@ -76,6 +75,16 @@ namespace Assets.Scripts
 
             AddFloor();
             AddFloor();
+        }
+
+        public void ResetCourse()
+        {
+            nextPosition = origin; 
+            foreach (var go in terrain)
+            {
+                UnityEngine.Object.Destroy(go); 
+            }
+            terrain.Clear();
         }
     }
 }

@@ -10,12 +10,9 @@ public class PlatformGenerator : MonoBehaviour
     public int maxPlatforms = 30;
     public GameObject platform;
     public GameObject obstacle;
-    public float horizontalMin = 6.5f;
-    public float horizontalMax = 14f;
-    public float verticalMin = -5f;
-    public float verticalMax = 5f;
     public GameObject player;
     public float spawnDistance = 5f;
+    public HeroController heroController; 
     
     private System.Random random;
     private Course course;
@@ -33,6 +30,16 @@ public class PlatformGenerator : MonoBehaviour
         {
             course.AddFloor(); 
         }
+    }
+
+    private void OnEnable()
+    {
+        heroController.OnDeath += ResetCourse; 
+    }
+
+    private void OnDisable()
+    {
+        heroController.OnDeath -= ResetCourse;
     }
 
     void Update()
@@ -64,6 +71,15 @@ public class PlatformGenerator : MonoBehaviour
             course.AddWall(3, 1); 
         }
         else
+        {
+            course.AddFloor();
+        }
+    }
+
+    void ResetCourse()
+    {
+        course.ResetCourse();
+        for (var i = 0; i < numStartPlatforms; i++)
         {
             course.AddFloor();
         }

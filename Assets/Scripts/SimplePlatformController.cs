@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SimplePlatformController : MonoBehaviour
 {
+    public delegate void DeathAction();
+    public event DeathAction OnDeath;
 
     [HideInInspector] public bool jump = false;
     public Transform groundCheck;
     public Transform obstacleCheck;
     public bool isBottomHero = true;
-    public GameObject parent; 
 
     private bool grounded = false;
     private Animator anim;
@@ -56,18 +57,9 @@ public class SimplePlatformController : MonoBehaviour
 
         if (obstacleHit)
         {
-            parent.transform.position = new Vector3(0, parent.transform.position.y, parent.transform.position.z); 
+            OnDeath(); 
         }
     }
-
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.layer == LayerMask.NameToLayer("Obstacles"))
-    //    {
-    //        var parentTransform = parent.transform;
-    //        parentTransform.position = new Vector3(0, parentTransform.position.y, parentTransform.position.z);
-    //    }
-    //}
 
     bool IsGrounded()
     {
