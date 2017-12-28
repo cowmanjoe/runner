@@ -12,7 +12,7 @@ public class PlatformGenerator : MonoBehaviour
     public GameObject obstacle;
     public GameObject player;
     public float spawnDistance = 5f;
-    public HeroController heroController; 
+    public HeroesController heroesController; 
     
     private System.Random random;
     private Course course;
@@ -34,12 +34,12 @@ public class PlatformGenerator : MonoBehaviour
 
     private void OnEnable()
     {
-        heroController.OnDeath += ResetCourse; 
+        heroesController.OnDeath += ResetCourse; 
     }
 
     private void OnDisable()
     {
-        heroController.OnDeath -= ResetCourse;
+        heroesController.OnDeath -= ResetCourse;
     }
 
     void Update()

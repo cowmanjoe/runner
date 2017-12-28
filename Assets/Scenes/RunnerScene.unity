@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4002903770007130, guid: f481e506ef36cbf49957c5c9dbe6d241, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.890625
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4002903770007130, guid: f481e506ef36cbf49957c5c9dbe6d241, type: 2}
       propertyPath: m_LocalRotation.x
@@ -205,6 +205,42 @@ Prefab:
     - target: {fileID: 114230415240562338, guid: f481e506ef36cbf49957c5c9dbe6d241,
         type: 2}
       propertyPath: TopHero
+      value: 
+      objectReference: {fileID: 273064547}
+    - target: {fileID: 4952754985828632, guid: f481e506ef36cbf49957c5c9dbe6d241, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484779771564286, guid: f481e506ef36cbf49957c5c9dbe6d241, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952754985828632, guid: f481e506ef36cbf49957c5c9dbe6d241, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484779771564286, guid: f481e506ef36cbf49957c5c9dbe6d241, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114735406892218626, guid: f481e506ef36cbf49957c5c9dbe6d241,
+        type: 2}
+      propertyPath: initialPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114906595515294892, guid: f481e506ef36cbf49957c5c9dbe6d241,
+        type: 2}
+      propertyPath: initialPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230415240562338, guid: f481e506ef36cbf49957c5c9dbe6d241,
+        type: 2}
+      propertyPath: bottomHero
+      value: 
+      objectReference: {fileID: 232154147}
+    - target: {fileID: 114230415240562338, guid: f481e506ef36cbf49957c5c9dbe6d241,
+        type: 2}
+      propertyPath: topHero
       value: 
       objectReference: {fileID: 273064547}
     m_RemovedComponents: []
@@ -332,7 +368,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1521252691}
   - component: {fileID: 1521252692}
-  - component: {fileID: 1521252693}
   m_Layer: 0
   m_Name: PlatformGenerator
   m_TagString: Untagged
@@ -369,18 +404,7 @@ MonoBehaviour:
   obstacle: {fileID: 1502245221706432, guid: 4f99cb7f7a9e79d458d03cc8f522f164, type: 2}
   player: {fileID: 1064553250}
   spawnDistance: 40
-  heroController: {fileID: 1064553251}
---- !u!114 &1521252693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1521252690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 260e46896880fd245af3ebca62f2e004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  heroesController: {fileID: 1064553251}
 --- !u!4 &1560332232 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4707669803486882, guid: f481e506ef36cbf49957c5c9dbe6d241,
@@ -484,5 +508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99c639adb1b2534a96689359c6deb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 5, y: 0, z: -20}
   topPlayer: {fileID: 273064543}
   bottomPlayer: {fileID: 232154143}
